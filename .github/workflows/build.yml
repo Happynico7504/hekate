@@ -14,10 +14,11 @@ jobs:
     
     - run: |
            make
+           tar -c output | gzip -9 > hekate.tar.gz
 
     - name: Upload Binary
       uses: actions/upload-artifact@v4
       with:
         name: package
         path: |
-              helate.zip
+              hekate.tar.gz
