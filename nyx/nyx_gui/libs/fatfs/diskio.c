@@ -59,7 +59,7 @@ DRESULT disk_read (
 	case DRIVE_RAM:
 		return ram_disk_read(sector, count, (void *)buff);
 	case DRIVE_EMMC:
-		return sdmmc_storage_read(&emmc_storage, sector, count, (void *)buff);
+		return sdmmc_storage_read(&sd_storage, sector, count, (void *)buff);
 	case DRIVE_BIS:
 	case DRIVE_EMU:
 		return nx_emmc_bis_read(sector, count, (void *)buff);
