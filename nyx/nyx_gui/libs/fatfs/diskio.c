@@ -55,7 +55,7 @@ DRESULT disk_read (
 	switch (pdrv)
 	{
 	case DRIVE_SD:
-		return sdmmc_storage_read(&emmc_storage, sector, count, (void *)buff);
+		return sdmmc_storage_read(&sd_storage, sector, count, (void *)buff);
 	case DRIVE_RAM:
 		return ram_disk_read(sector, count, (void *)buff);
 	case DRIVE_EMMC:
@@ -81,7 +81,7 @@ DRESULT disk_write (
 	switch (pdrv)
 	{
 	case DRIVE_SD:
-		return sdmmc_storage_write(&emmc_storage, sector, count, (void *)buff);
+		return sdmmc_storage_write(&sd_storage, sector, count, (void *)buff);
 	case DRIVE_RAM:
 		return ram_disk_write(sector, count, (void *)buff);
 	case DRIVE_EMMC:
@@ -113,7 +113,7 @@ DRESULT disk_ioctl (
 		switch (cmd)
 		{
 		case GET_SECTOR_COUNT:
-			*buf = emmc_storage.sec_cnt - sd_rsvd_sectors;
+			*buf = sd_storage.sec_cnt - sd_rsvd_sectors;
 			break;
 		case GET_BLOCK_SIZE:
 			*buf = 32768; // Align to 16MB.
