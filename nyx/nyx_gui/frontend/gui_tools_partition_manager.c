@@ -1711,7 +1711,7 @@ static lv_res_t _sd_create_mbox_start_partitioning()
 	// Set reserved size.
 	u32 part_rsvd_size = (part_info.emu_size << 11) + (part_info.l4t_size << 11) + (part_info.and_size << 11);
 	part_rsvd_size += part_rsvd_size ? part_info.alignment : 0; // Do not reserve alignment space if no extra partitions.
-	disk_set_info(DRIVE_SD, SET_SECTOR_COUNT, &part_rsvd_size);
+	disk_set_info(DRIVE_EMMC, SET_SECTOR_COUNT, &part_rsvd_size);
 	u8 *buf = malloc(SZ_4M);
 
 	// Set cluster size to 64KB and try to format.
