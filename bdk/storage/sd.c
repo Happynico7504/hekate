@@ -133,7 +133,7 @@ int sd_init_retry(bool power_cycle)
 		break;
 	}
 
-	int res = sdmmc_storage_init_sd(&sd_storage, &sd_sdmmc, bus_width, type);
+	int res = sdmmc_storage_init_mmc(&sd_storage, &sd_sdmmc, bus_width, type);
 	if (!res)
 	{
 		sd_init_done    = true;
