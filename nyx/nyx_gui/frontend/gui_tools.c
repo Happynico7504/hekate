@@ -62,7 +62,7 @@ bool get_set_autorcm_status(bool toggle)
 	if (h_cfg.t210b01)
 		return false;
 
-	emmc_initialize(false);
+	sd_initialize(false);
 
 	u8 *tempbuf = (u8 *)malloc(0x200);
 	emmc_set_partition(EMMC_BOOT0);
@@ -1159,7 +1159,7 @@ static lv_res_t _create_window_dump_pk12_tool(lv_obj_t *btn)
 
 	char *txt_buf  = (char *)malloc(SZ_16K);
 
-	if (emmc_initialize(false))
+	if (sd_initialize(false))
 	{
 		lv_label_set_text(lb_desc, "#FFDD00 Failed to init eMMC!#");
 
