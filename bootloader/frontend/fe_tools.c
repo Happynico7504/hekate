@@ -110,7 +110,7 @@ void menu_autorcm()
 		return;
 	}
 
-	if (emmc_initialize(false))
+	if (sd_initialize(false))
 	{
 		EPRINTF("Failed to init eMMC.");
 		btn_wait();
