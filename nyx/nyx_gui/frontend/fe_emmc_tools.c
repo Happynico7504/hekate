@@ -795,7 +795,7 @@ void dump_emmc_selected(emmcPartType_t dumpType, emmc_tool_gui_t *gui)
 	// Get SD Card free space for Partial Backup.
 	f_getfree("", &sd_fs.free_clst, NULL);
 
-	if (emmc_initialize(false))
+	if (sd_initialize(false))
 	{
 		lv_label_set_text(gui->label_info, "#FFDD00 Failed to init eMMC!#");
 		goto out;
@@ -1468,7 +1468,7 @@ void restore_emmc_selected(emmcPartType_t restoreType, emmc_tool_gui_t *gui)
 		goto out;
 	}
 
-	if (emmc_initialize(false))
+	if (sd_initialize(false))
 	{
 		lv_label_set_text(gui->label_info, "#FFDD00 Failed to init eMMC!#");
 		goto out;
