@@ -802,7 +802,7 @@ static lv_res_t _action_flash_linux_data(lv_obj_t * btns, const char * txt)
 
 	sd_mount();
 	if (part_info.emmc)
-		emmc_initialize(false);
+		sd_initialize(false);
 
 	int res = 0;
 	char *path = malloc(1024);
@@ -1060,7 +1060,7 @@ static lv_res_t _action_check_flash_linux(lv_obj_t *btn)
 
 	sd_mount();
 	if (part_info.emmc)
-		emmc_initialize(false);
+		sd_initialize(false);
 
 	// Check if L4T image exists.
 	strcpy(path, "switchroot/install/l4t.00");
@@ -1225,7 +1225,7 @@ static lv_res_t _action_flash_android_data(lv_obj_t * btns, const char * txt)
 
 	sd_mount();
 	if (part_info.emmc)
-		emmc_initialize(false);
+		sd_initialize(false);
 
 	// Read main GPT.
 	sdmmc_storage_read(part_info.storage, 1, sizeof(gpt_t) >> 9, gpt);
@@ -1928,7 +1928,7 @@ static lv_res_t _emmc_create_mbox_start_partitioning()
 	lv_obj_align(mbox, NULL, LV_ALIGN_CENTER, 0, 0);
 	manual_system_maintenance(true);
 
-	if (emmc_initialize(false))
+	if (sd_initialize(false))
 	{
 		lv_label_set_text(lbl_extra, "#FFDD00 Failed to init eMMC!#");
 		goto exit;
@@ -3058,7 +3058,7 @@ lv_res_t create_window_partition_manager(bool emmc)
 			return LV_RES_OK;
 		}
 
-		if (!emmc_initialize(false))
+		if (!sd_initialize(false))
 		{
 			emmc_set_partition(EMMC_GPP);
 			emmc_size = emmc_storage.sec_cnt >> 11;
@@ -3067,7 +3067,7 @@ lv_res_t create_window_partition_manager(bool emmc)
 	}
 	else
 	{
-		if (emmc_initialize(false))
+		if (sd_initialize(false))
 		{
 			lv_obj_t *lbl = lv_label_create(h1, NULL);
 			lv_label_set_recolor(lbl, true);
