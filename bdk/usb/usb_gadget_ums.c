@@ -1874,7 +1874,7 @@ int usb_device_gadget_ums(usb_ctxt_t *usbs)
 	}
 	else
 	{
-		if (emmc_initialize(false))
+		if (sd_initialize(false))
 		{
 			ums.set_text(ums.label, "#FFDD00 Failed to init eMMC!#");
 			res = 1;
