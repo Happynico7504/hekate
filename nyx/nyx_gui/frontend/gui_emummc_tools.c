@@ -216,7 +216,7 @@ static void _create_mbox_emummc_raw()
 	sdmmc_storage_read(&sd_storage, 0, 1, mbr);
 	sd_unmount();
 
-	emmc_initialize(false);
+	sd_initialize(false);
 
 	u32 emmc_size_safe = emmc_storage.sec_cnt + 0xC000; // eMMC GPP size + BOOT0/1.
 
@@ -643,7 +643,7 @@ static lv_res_t _create_mbox_emummc_migrate(lv_obj_t *btn)
 	sd_mount();
 	sdmmc_storage_read(&sd_storage, 0, 1, mbr);
 
-	emmc_initialize(false);
+	sd_initialize(false);
 
 	bool backup = false;
 	bool emummc = false;
