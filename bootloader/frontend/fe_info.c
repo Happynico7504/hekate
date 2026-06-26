@@ -65,7 +65,7 @@ void print_mmc_info()
 
 	static const u32 SECTORS_TO_MIB_COEFF = 11;
 
-	if (emmc_initialize(false))
+	if (sd_initialize(false))
 	{
 		EPRINTF("Failed to init eMMC.");
 		goto out;
