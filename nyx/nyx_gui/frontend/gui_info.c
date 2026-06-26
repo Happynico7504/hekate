@@ -1484,7 +1484,7 @@ static lv_res_t _create_mbox_emmc_sandisk_report(lv_obj_t * btn)
 	lv_obj_align(lb_desc2, lb_desc, LV_ALIGN_OUT_RIGHT_TOP, 0, 0);
 
 
-	if (emmc_initialize(false))
+	if (sd_initialize(false))
 	{
 		lv_label_set_text(lb_desc, "#FFDD00 Failed to init eMMC!#");
 
@@ -1846,7 +1846,7 @@ static lv_res_t _create_mbox_benchmark(bool sd_bench)
 	else
 	{
 		storage = &emmc_storage;
-		res = emmc_initialize(false);
+		res = sd_initialize(false);
 		if (!res)
 			emmc_set_partition(EMMC_GPP);
 	}
@@ -2168,7 +2168,7 @@ static lv_res_t _create_window_emmc_info_status(lv_obj_t *btn)
 	txt_buf[1] = 0;
 	u16 *emmc_errors;
 
-	if (emmc_initialize(false))
+	if (sd_initialize(false))
 	{
 		lv_label_set_text(lb_desc, "#FFDD00 Failed to init eMMC!#");
 		lv_obj_set_width(lb_desc, lv_obj_get_width(desc));
