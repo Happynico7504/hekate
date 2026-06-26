@@ -813,7 +813,7 @@ static int _l4t_sc7_exit_config(bool t210b01)
 	if (!t210b01)
 	{
 		// Apply Nintendo Switch (2017) RSA modulus to SC7-Exit firmware.
-		emmc_initialize(false);
+		sd_initialize(false);
 		pkg1_warmboot_rsa_mod(SC7EXIT_BASE);
 		emmc_end();
 
