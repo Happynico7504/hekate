@@ -670,8 +670,8 @@ void hos_bis_keys_clear()
 int hos_dump_cal0()
 {
 	// Init eMMC.
-	if (sd_initialize(false))
-		return 1;
+//	if (sd_initialize(false))
+//		return 1;
 
 	// Generate BIS keys
 	if (hos_bis_keygen())
