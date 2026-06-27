@@ -130,6 +130,7 @@ int sd_init_retry(bool power_cycle)
 
 	default:
 		sd_mode = SD_DEFAULT_SPEED;
+		bus_width = SDMMC_BUS_WIDTH_8;
 		break;
 	}
 
