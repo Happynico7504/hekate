@@ -1695,8 +1695,7 @@ void hos_launch(ini_sec_t *cfg)
 	if (is_exo)
 		config_exosphere(&ctxt, warmboot_base);
 
-	// Unmount SD card and eMMC.
-	sd_end();
+	// Unmount eMMC.
 	emmc_end();
 
 	// Close AHB aperture. Important when stock old secmon is used.
